@@ -25,4 +25,10 @@ public class PotatotipsTest extends AndroidTestCase {
         assertEquals("のりしお", consomme.getName());
     }
 
+    public void test_商品名がわさびであること() throws Exception {
+        Potatotips consomme = new Potatotips("わさび", 400);
+        assertEquals(400, consomme.getPrice());
+        assertEquals("わさび", consomme.getName());
+    }
+
 }
