@@ -26,8 +26,8 @@ before_install:
 
 before_script:
     # Make sure the emulator has started before running tests
-    - ./wait_for_emulator
-#    - adb wait-for-device 
+#    - ./wait_for_emulator
+    - adb wait-for-device 
 
 script:
  - mvn install -Pintegration-tests -Dandroid.device=test
