@@ -1,24 +1,31 @@
 language: java
-jdk: oraclejdk7
+jdk: oraclejdk6
 
 notifications:
   email: true
 
 env:
     matrix:
-    - ANDROID_SDKS=sysimg-16            ANDROID_TARGET=android-16  ANDROID_ABI=armeabi-v7a
-    - ANDROID_SDKS=android-17,sysimg-17 ANDROID_TARGET=android-17  ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
 before_install:
     # Install base Android SDK
     - sudo apt-get update -qq
     - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
     - wget https://dl.google.com/android/android-sdk_r22.6-linux.tgz
     - tar xzf android-sdk_r22.6-linux.tgz
-    - export ANDROID_HOME=$PWD/android-sdk-linux
+#    - export ANDROID_HOME=$PWD/android-sdk-linux
+    - export ANDROID_HOME=`pwd`/android-sdk-linux
     - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-
+    
     # Install required Android components.
-    - android update sdk --filter platform-tools,android-16,android-17,android-18,android-19,extra-android-support,$ANDROID_SDKS --no-ui --force
+    - android list sdk --extended
+
+    # Do you accept the license 'android-sdk-license-bcbbd656' [y/n]:
+    - echo y | android update sdk --filter platform-tools, extra-android-support,$ANDROID_SDKS --no-ui --force
+
+    # PROVISIONAL: changed SDKr22 build-tools path. create symbolic link
+    - if [ ! -e ${ANDROID_HOME}/platform-tools/aapt ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aapt ${ANDROID_HOME}/platform-tools/aapt; fi
+    - if [ ! -e ${ANDROID_HOME}/platform-tools/aidl ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aidl ${ANDROID_HOME}/platform-tools/aidl; fi
 
     # Create and start emulator
     - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
@@ -26,7 +33,8 @@ before_install:
 
 before_script:
     # Make sure the emulator has started before running tests
-#    - ./wait_for_emulator
+    - chmod +x ./wait_for_emulator
+    - ./wait_for_emulator
     - adb wait-for-device 
 
 script:
