@@ -12,18 +12,18 @@ env:
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
+    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-18 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-18 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-18 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
+    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-17 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-17 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-17 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
+    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-16 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-16 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-16 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
+    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-15 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-15 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-15 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
 before_install:
     # Install base Android SDK
     - sudo apt-get update -qq
