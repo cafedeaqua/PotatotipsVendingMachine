@@ -40,7 +40,7 @@ before_install:
     - android list sdk --extended
 
     # Do you accept the license 'android-sdk-license-bcbbd656' [y/n]:
-    - echo y | android update sdk --filter platform-tool,extra-android-support,$ANDROID_SDKS --no-ui --force
+    - echo y | android update sdk --filter platform-tool,extra-android-support,${ANDROID_TARGET},$ANDROID_SDKS --no-ui --force
 
     # PROVISIONAL: changed SDKr22 build-tools path. create symbolic link
     - if [ ! -e ${ANDROID_HOME}/platform-tools/aapt ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aapt ${ANDROID_HOME}/platform-tools/aapt; fi
@@ -48,7 +48,7 @@ before_install:
 
     # Create and start emulator
     - export AVD_NAME=test
-    - echo no | android create avd --force -n ${AVD_NAME} -t $ANDROID_TARGET --abi ${ANDROID_ABI}
+    - echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI}
     - emulator -avd ${AVD_NAME} -no-skin -no-audio -no-window &
 
 before_script:
