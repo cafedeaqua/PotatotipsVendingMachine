@@ -10,20 +10,9 @@ notifications:
 env:
     matrix:
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-18 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-18 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-18  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-18 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-17 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-17 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-17  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-17 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-16 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-16 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-16  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-16 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-15 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-15 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-15  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-15 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
 before_install:
     # Install base Android SDK
     - sudo apt-get update -qq
@@ -35,12 +24,13 @@ before_install:
     - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION
 
     
-    
     # Install required Android components.
     - android list sdk --extended
+    - android list target
+    - android list sdk --extended -a
 
     # Do you accept the license 'android-sdk-license-bcbbd656' [y/n]:
-    - echo y | android update sdk --filter platform-tool,extra-android-support,${ANDROID_TARGET},$ANDROID_SDKS --no-ui --force
+    - echo y | android update sdk --filter platform-tool,extra-android-support,${ANDROID_SDKS} --no-ui --force
 
     # PROVISIONAL: changed SDKr22 build-tools path. create symbolic link
     - if [ ! -e ${ANDROID_HOME}/platform-tools/aapt ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aapt ${ANDROID_HOME}/platform-tools/aapt; fi
