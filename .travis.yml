@@ -1,8 +1,8 @@
 language: java
 jdk:
-  - openjdk7
+#  - openjdk7
   - oraclejdk7
-  - openjdk6
+#  - openjdk6
 
 notifications:
   email: true
@@ -62,7 +62,7 @@ addons:
     build_command: "ant -f tests/build.xml emma debug install test"
     branch_pattern: master
 
-script:
+#script:
 # - ant -f build.xml emma debug install
 # - ant -f tests/build.xml emma debug install test
 
