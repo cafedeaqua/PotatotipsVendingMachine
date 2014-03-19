@@ -19,8 +19,8 @@ addons:
       name: "cafedeaqua/PotatotipsVendingMachine"
       description: "Your project description here"
     notification_email: cafedeaqua@gmail.com
-    build_command_prepend:
-    build_command:
+    build_command_prepend: "ant -f build.xml emma debug install"
+    build_command: "ant -f tests/build.xml emma debug install test"
     branch_pattern: coverity_scan
     
 env:
