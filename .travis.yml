@@ -8,6 +8,22 @@ notifications:
   email: true
 
 env:
+  global:
+   # The next declration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "qYMMVekEh7QlCKO0QY8/3DP4q2nYjarb4qo8/fn+jUDudO3S1ZK5oVjpLVEk1+DQMKYb8Idyh6eobWrcnaNvfLtA8tZbOt0ByCp6tDCXiKLSTccQR1amY50Luh3XVA5mRdeWFuPL3LzJl8/pR/rjx8vZvPS3Fo3swlYeKzhNaAg="
+
+addons:
+  coverity_scan:
+    project:
+      name: "cafedeaqua/PotatotipsVendingMachine"
+      description: "Your project description here"
+    notification_email: cafedeaqua@gmail.com
+    build_command_prepend:
+    build_command:
+    branch_pattern: coverity_scan
+    
+env:
     matrix:
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
