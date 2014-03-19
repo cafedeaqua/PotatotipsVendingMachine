@@ -63,7 +63,7 @@ addons:
     branch_pattern: master
 
 script:
- - ant -f build.xml emma debug install
- - ant -f tests/build.xml emma debug install test
+# - ant -f build.xml emma debug install
+# - ant -f tests/build.xml emma debug install test
 
 
