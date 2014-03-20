@@ -60,7 +60,7 @@ addons:
     notification_email: cafedeaqua@gmail.com
     build_command_prepend: ant -f build.xml emma debug install
     build_command: ant -f tests/build.xml emma debug install test
-    branch_pattern: master
+    branch_pattern: coverity_scan
 
 script:
  - ant -f build.xml emma debug install
