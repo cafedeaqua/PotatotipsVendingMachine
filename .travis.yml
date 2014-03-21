@@ -70,6 +70,9 @@ script:
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.em .
  - ls -la .
  
- 
+ - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
+  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.ec .
+#  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
+
 
 
