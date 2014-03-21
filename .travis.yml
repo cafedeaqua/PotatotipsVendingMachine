@@ -67,6 +67,7 @@ script:
  - ant -f tests/build.xml emma debug install test
  - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.ec .
+ - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.em .
  - ls -la .
  
  
