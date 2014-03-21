@@ -65,5 +65,6 @@ addons:
 script:
  - ant -f build.xml emma debug install
  - ant -f tests/build.xml emma debug install test
+ - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin
 
 
