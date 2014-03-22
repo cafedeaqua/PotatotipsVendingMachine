@@ -74,6 +74,9 @@ script:
  
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
+ - adb pull /data/data/com.andbrowser.potatotipsvendingmachine.test/files/coverage.ec .
+ - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.em .
+ - adb pull /data/data/com.andbrowser.potatotipsvendingmachine.test/files/coverage.em .
 # - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.em .
  - ls -la .
 #  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
@@ -81,10 +84,6 @@ script:
 # - ant -f coverallsemma/build.xmlc
 # - ls -la coverallsemma/build/emmacoveralls.jar
  - export SERVICE_NAME=travis-ci
- - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
- - ls -la coveralls.json
- - cat coveralls.json
- - ls -la coverage.json
- - cat coverage.json
+ - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
  - curl --form json_file=@coverage.json https://coveralls.io/api/v1/jobs
 
