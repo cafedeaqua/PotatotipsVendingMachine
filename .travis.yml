@@ -76,6 +76,7 @@ script:
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
 # below success
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
+ - cp /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/coverage.em .
 # - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/ # no availavle
 # - cp /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/coverage.ec . # no availavle
 # - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/ # no availavle
