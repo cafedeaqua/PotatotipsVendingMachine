@@ -65,13 +65,14 @@ addons:
 script:
  - ant -f build.xml emma debug install
  - ant -f tests/build.xml emma debug install test
- - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin
- - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.ec .
- - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.em .
- - ls -la .
+# - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin
+# - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.ec .
+# - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.em .
+# - ls -la .
  
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
-  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.ec .
+ - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
+ - ls -la .
 #  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
 
 
