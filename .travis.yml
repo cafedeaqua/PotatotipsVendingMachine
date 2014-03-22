@@ -17,7 +17,7 @@ env:
     - secure: "qYMMVekEh7QlCKO0QY8/3DP4q2nYjarb4qo8/fn+jUDudO3S1ZK5oVjpLVEk1+DQMKYb8Idyh6eobWrcnaNvfLtA8tZbOt0ByCp6tDCXiKLSTccQR1amY50Luh3XVA5mRdeWFuPL3LzJl8/pR/rjx8vZvPS3Fo3swlYeKzhNaAg="
   matrix:
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
+#    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
 #    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
 #    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
 before_install:
