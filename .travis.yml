@@ -74,13 +74,15 @@ script:
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
  - ls -la .
 #  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
- - git clone git@github.com:cafedeaqua/coverallsemma.git
+ - echo yes | git clone git@github.com:cafedeaqua/coverallsemma.git
  - ant -f coverallsemma/build.xmlc
  - ls -la coverallsemma/build/emmacoveralls.jar
- - export SERVICE_JOBID=jobid
  - export SERVICE_NAME=travis-ci
- - export COVERALLS_REPO_TOKEN=repo_token
- - java -cp coverallsemma/build/emmacoveralls.jar emma report -r coveralls -in coverage.ec  -sp src/ -Dreport.coveralls.service.jobid=$SERVICE_JOBID -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
- - cat coveralls.json 
-
+ - export COVERALLS_REPO_TOKEN=xeZ0zlwlG4PBqObSOEIaoQ6quAZeVYBjM
+ - java -cp coverallsemma/build/emmacoveralls.jar emma report -r coveralls -in coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
+ - ls -la coveralls.json
+ - cat coveralls.json
+ - ls -la coverage.json
+ - cat coverage.json
+ - curl --form json_file=@coverage.json https://coveralls.io/api/v1/jobs
 
