@@ -73,8 +73,11 @@ script:
 # - ls -la .
  
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
- - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
- - cat coverage.ec
+// below success
+# - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
+ - cp /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/coverage.ec .
+ - cp /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/coverage.em .
+# - cat coverage.ec //binary
 # - adb pull /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/coverage.em .
 # - adb pull /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/coverage.ec coverage2.ec
 # - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.em coverage2.em
