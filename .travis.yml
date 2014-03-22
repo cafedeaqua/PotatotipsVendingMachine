@@ -76,10 +76,10 @@ script:
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
 # below success
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
- - ls -la /data/data/com.andbrowser.potatotipsvendingmachine/files/
- - ls -la /data/data/com.andbrowser.potatotipsvendingmachine/
- - ls -la /data/data/com.andbrowser.potatotipsvendingmachine.test/files/
- - ls -la /data/data/com.andbrowser.potatotipsvendingmachine.test/
+ - adb shell ls -la /data/data/com.andbrowser.potatotipsvendingmachine/files/
+ - adb shell ls -la /data/data/com.andbrowser.potatotipsvendingmachine/
+ - adb shell ls -la /data/data/com.andbrowser.potatotipsvendingmachine.test/files/
+ - adb shell ls -la /data/data/com.andbrowser.potatotipsvendingmachine.test/
  - cp /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/coverage.em .
 # - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/ # no availavle
 # - cp /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/coverage.ec . # no availavle
@@ -91,6 +91,8 @@ script:
 # - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.em coverage2.em
  - pwd
  - ls -la .
+ - ls -la bin
+ - ls -la tests/bin
 #  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
 # - echo yes | git clone git@github.com:cafedeaqua/coverallsemma.git
 # - ant -f coverallsemma/build.xmlc
