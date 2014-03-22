@@ -74,9 +74,10 @@ script:
  
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
- - adb pull /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/coverage.em .
- - adb pull /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/coverage.ec coverage2.ec
- - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.em coverage2.em
+ - cat coverage.ec
+# - adb pull /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/coverage.em .
+# - adb pull /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/coverage.ec coverage2.ec
+# - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.em coverage2.em
  - ls -la .
 #  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
 # - echo yes | git clone git@github.com:cafedeaqua/coverallsemma.git
