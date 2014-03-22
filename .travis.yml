@@ -80,11 +80,11 @@ script:
 # - echo yes | git clone git@github.com:cafedeaqua/coverallsemma.git
 # - ant -f coverallsemma/build.xmlc
 # - ls -la coverallsemma/build/emmacoveralls.jar
-# - export SERVICE_NAME=travis-ci
-# - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
-# - ls -la coveralls.json
-# - cat coveralls.json
-# - ls -la coverage.json
-# - cat coverage.json
-# - curl --form json_file=@coverage.json https://coveralls.io/api/v1/jobs
+ - export SERVICE_NAME=travis-ci
+ - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
+ - ls -la coveralls.json
+ - cat coveralls.json
+ - ls -la coverage.json
+ - cat coverage.json
+ - curl --form json_file=@coverage.json https://coveralls.io/api/v1/jobs
 
