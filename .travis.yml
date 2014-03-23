@@ -10,7 +10,11 @@ notifications:
 notifications:
   webhooks:
     - https://idobata.io/hook/22ff3a1b-28ad-49e9-8fda-3cfc8493f32a
-    
+
+notifications:
+  webhooks:
+    - http://requestb.in/17yb0c81
+
 env:
   global:
   # for coverall repo_token
