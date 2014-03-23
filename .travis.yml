@@ -70,46 +70,20 @@ addons:
 script:
  - ant -f build.xml emma debug install
  - ant -f tests/build.xml emma debug install test
- - history
-# - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin
-# - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.ec .
-# - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/coverage.em .
-# - ls -la .
- 
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
-# below success
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
- - adb shell ls -la /data/data/com.andbrowser.potatotipsvendingmachine/files/
- - adb shell ls -la /data/data/com.andbrowser.potatotipsvendingmachine/
- - adb shell ls -la /data/data/com.andbrowser.potatotipsvendingmachine.test/files/
- - adb shell ls -la /data/data/com.andbrowser.potatotipsvendingmachine.test/
- - cp bin/coverage.em .
-# - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/ # no availavle
-# - cp /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/coverage.ec . # no availavle
-# - ls -la /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/ # no availavle
-# - cp /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/coverage.em . # no availavle
-# - cat coverage.ec //binary
-# - adb pull /home/travis/build/cafedeaqua/PotatotipsVendingMachine/bin/coverage.em .
-# - adb pull /home/travis/build/cafedeaqua/PotatotipsVendingMachine/tests/bin/coverage.ec coverage2.ec
-# - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.em coverage2.em
- - pwd
- - ls -la .
- - ls -la bin
- - ls -la tests/bin
  - ant -f build.xml clean emma debug
  - ant -f tests/build.xml clean emma debug
- - pwd
- - ls -la .
- - ls -la bin
- - ls -la tests/bin
  - cp bin/coverage.em .
+ - ls -la .
 #  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
 # - echo yes | git clone git@github.com:cafedeaqua/coverallsemma.git
 # - ant -f coverallsemma/build.xmlc
 # - ls -la coverallsemma/build/emmacoveralls.jar
  - export SERVICE_NAME=travis-ci
 # - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
- - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
+ - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN -Dreport.coveralls.service.jobid=${TRAVIS_JOB_ID}
  - ls -la .
+ - cat coverage.json
  - curl --form json_file=@coverage.json https://coveralls.io/api/v1/jobs
 
