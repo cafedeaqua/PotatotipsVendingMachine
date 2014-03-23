@@ -82,7 +82,7 @@ script:
 # - ls -la coverallsemma/build/emmacoveralls.jar
  - export SERVICE_NAME=travis-ci
 # - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
- - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN -Dreport.coveralls.service.jobid=${TRAVIS_BUILD_ID}
+ - java -cp emmacoveralls.jar emma report -r coveralls -in bin/coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN -Dreport.coveralls.service.jobid=${TRAVIS_BUILD_ID}
  - ls -la .
  - cat coverage.json
  - curl --form 'json_file=@coverage.json' https://coveralls.io/api/v1/jobs
