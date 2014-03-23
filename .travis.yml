@@ -93,7 +93,7 @@ script:
  - ls -la .
  - ls -la bin
  - ls -la tests/bin
- - ant -f build.xml clean emma 
+ - ant -f build.xml clean emma debug
  - pwd
  - ls -la .
  - ls -la bin
