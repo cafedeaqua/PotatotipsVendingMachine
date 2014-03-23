@@ -7,6 +7,9 @@ jdk:
 notifications:
   email: true
 
+notifications:
+  webhooks:
+    - https://idobata.io/hook/22ff3a1b-28ad-49e9-8fda-3cfc8493f32a
     
 env:
   global:
