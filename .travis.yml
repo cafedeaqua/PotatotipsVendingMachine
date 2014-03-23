@@ -109,5 +109,6 @@ script:
  - export SERVICE_NAME=travis-ci
 # - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
  - java -cp emmacoveralls.jar emma report -r coveralls -in coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN
+ - ls -la .
  - curl --form json_file=@coverage.json https://coveralls.io/api/v1/jobs
 
