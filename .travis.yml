@@ -102,6 +102,7 @@ script:
  - ls -la .
  - ls -la bin
  - ls -la tests/bin
+ - cp bin/coverage.em .
 #  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
 # - echo yes | git clone git@github.com:cafedeaqua/coverallsemma.git
 # - ant -f coverallsemma/build.xmlc
