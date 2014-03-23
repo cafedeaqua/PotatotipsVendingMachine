@@ -14,7 +14,7 @@ notifications:
 env:
   global:
   # for coverall repo_token
-   - secure: BaXpPo2X+gPhObp2JH+n6xz0SHUt82wtcdjYObNuvrnqGE9PdtH3reBkMBxUoSJlT4OgecX4zt0Rkm8+Dzm7tyrvFis5DxSnT06ZkxPNxxcOeSz+kqvTdDiGLX/FpX5Gvwlk5h/GtxQZMFXp3fT2d2SR3cJRJmzOCChVwKsjyYc=
+   - secure: LjGmP0cL8W1XwrXJFdTvo5Zn5JjsT0dLiTYixTwHRwtKRBX2b/NYwiaEhSiPm+ppU8VUnwq721eYkvWMv9sTDYtklsW30gx0MfQ+EzPi6a3KCA0TpMAIPnAmR3Mf0dfkMwoscn+aHupW5lbTC9AHGe8NmiUx2BzGakNz0XLiqmw=
    # The next declration is the encrypted COVERITY_SCAN_TOKEN, created
    #   via the "travis encrypt" command using the project repo's public key
    - secure: "FGtrP6+n/RcGrnPkhh0kJmfiNKlB8uFtDL60A2yd/ecR/vSvzrfpkl/QQs3yhoQh+K03oqGMCw7w/uVxzq3F/hLDEzt1UDkVeY8V8p33FHK+sC4oAIe0UlMhDRDqgQjm+gyiRBlHdAkz/N2catY7RDvXNmVMl2V6jPKAeGjtdZY="
