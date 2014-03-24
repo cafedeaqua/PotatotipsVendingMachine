@@ -24,8 +24,8 @@ env:
   matrix:
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
     - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET="Google Inc.:Google APIs:19"  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET="Google Inc.:Google APIs x86:19"  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
+    - ANDROID_TARGET=2  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=2  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
 before_install:
     # Install base Android SDK
     - sudo apt-get update -qq
