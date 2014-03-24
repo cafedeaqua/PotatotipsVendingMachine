@@ -73,8 +73,8 @@ addons:
 script:
  - ant -f build.xml emma debug install
  - ant -f tests/build.xml emma debug install test
- - cp bin/MainActivity-debug.apk .
- - curl -F "file=@MainActivity-debug.apk" -F "token=${DEPLOYGATE_API_KEY}" -F "message=Update PotatotipsVendingMachine" https://deploygate.com/api/users/tarotaro4/apps
+# - cp bin/MainActivity-debug.apk .
+ - curl -F "file=@bin/MainActivity-debug.apk" -F "token=${DEPLOYGATE_API_KEY}" -F "message=Update PotatotipsVendingMachine" https://deploygate.com/api/users/tarotaro4/apps
  
 after_success:
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
