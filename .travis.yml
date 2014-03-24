@@ -22,11 +22,10 @@ env:
    - secure: "FGtrP6+n/RcGrnPkhh0kJmfiNKlB8uFtDL60A2yd/ecR/vSvzrfpkl/QQs3yhoQh+K03oqGMCw7w/uVxzq3F/hLDEzt1UDkVeY8V8p33FHK+sC4oAIe0UlMhDRDqgQjm+gyiRBlHdAkz/N2catY7RDvXNmVMl2V6jPKAeGjtdZY="
 
   matrix:
-    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3
-#    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
-#    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
-    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3
-    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3
+    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-19  ANDROID_SDKS=android-19,build-tools-19.0.3,sysimg-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
+    - ANDROID_TARGET="Google Inc.:Google APIs:19"  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET="Google Inc.:Google APIs x86:19"  ANDROID_SDKS=android-19,build-tools-19.0.3,addon-google_apis_x86-google-19 ANDROID_BUILD_TOOLS_VERSION=19.0.3 ANDROID_ABI=x86
 before_install:
     # Install base Android SDK
     - sudo apt-get update -qq
@@ -51,8 +50,7 @@ before_install:
 
     # Create and start emulator
     - export AVD_NAME=test
-#    - echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI}
-    - echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET}
+    - echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI}
     - emulator -avd ${AVD_NAME} -no-skin -no-audio -no-window &
 
 before_script:
