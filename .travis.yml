@@ -73,9 +73,7 @@ addons:
 script:
  - ant -f build.xml emma debug install
  - ant -f tests/build.xml emma debug install test
-# - cp bin/MainActivity-debug.apk .
- - curl -F "file=@bin/MainActivity-debug.apk" -F "token=${DEPLOYGATE_API_KEY}" -F "message=Update PotatotipsVendingMachine" https://deploygate.com/api/users/tarotaro4/apps
- 
+
 after_success:
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
  - adb pull /data/data/com.andbrowser.potatotipsvendingmachine/files/coverage.ec .
@@ -84,3 +82,5 @@ after_success:
  - export SERVICE_NAME=travis-ci
  - java -cp emmacoveralls.jar emma report -r coveralls -in bin/coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN -Dreport.coveralls.service.jobid=${TRAVIS_JOB_ID}
  - curl --form 'json_file=@coverage.json' https://coveralls.io/api/v1/jobs
+- curl -F "file=@bin/MainActivity-debug.apk" -F "token=${DEPLOYGATE_API_KEY}" -F "message=Update PotatotipsVendingMachine" https://deploygate.com/api/users/tarotaro4/apps
+
