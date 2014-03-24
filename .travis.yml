@@ -82,5 +82,5 @@ after_success:
  - export SERVICE_NAME=travis-ci
  - java -cp emmacoveralls.jar emma report -r coveralls -in bin/coverage.em,coverage.ec  -sp src/ -Dreport.coveralls.service.name=$SERVICE_NAME -Dreport.coveralls.repotoken=$COVERALLS_REPO_TOKEN -Dreport.coveralls.service.jobid=${TRAVIS_JOB_ID}
  - curl --form 'json_file=@coverage.json' https://coveralls.io/api/v1/jobs
-- curl -F "file=@bin/MainActivity-debug.apk" -F "token=${DEPLOYGATE_API_KEY}" -F "message=Update PotatotipsVendingMachine" https://deploygate.com/api/users/tarotaro4/apps
+ - curl -F "file=@bin/MainActivity-debug.apk" -F "token=${DEPLOYGATE_API_KEY}" -F "message=Update PotatotipsVendingMachine" https://deploygate.com/api/users/tarotaro4/apps
 
