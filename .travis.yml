@@ -38,12 +38,11 @@ before_install:
 
     
     # Install required Android components.
-    - android list sdk --extended
-    - android list target
     - android list sdk --extended -a
 
     # Do you accept the license 'android-sdk-license-bcbbd656' [y/n]:
     - echo y | android update sdk --filter platform-tool,extra-android-support,${ANDROID_SDKS} --no-ui --force
+    - android list target
 
     # PROVISIONAL: changed SDKr22 build-tools path. create symbolic link
 #    - if [ ! -e ${ANDROID_HOME}/platform-tools/aapt ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aapt ${ANDROID_HOME}/platform-tools/aapt; fi
