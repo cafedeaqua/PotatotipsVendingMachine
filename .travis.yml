@@ -13,6 +13,8 @@ notifications:
 
 env:
   global:
+  # deploygate api key encryption
+   - secure: QsrfAlzxJ67zQcxB/7EDnd54jCphhoE2BZe/rrkby4U6sW3L6XKuf1VJzfzeB9CnwSN9zbtTIwYRo0z1kpz+1hQ9O/ySFpa3yEImSwd9+7gy0dAnMgAdiJ3hw3PQWcYRo3e9LHSEKNCNmpe+0OHzEVFywiInQXTM3vSoyhReiyc=
   # for coverall repo_token
    - secure: LjGmP0cL8W1XwrXJFdTvo5Zn5JjsT0dLiTYixTwHRwtKRBX2b/NYwiaEhSiPm+ppU8VUnwq721eYkvWMv9sTDYtklsW30gx0MfQ+EzPi6a3KCA0TpMAIPnAmR3Mf0dfkMwoscn+aHupW5lbTC9AHGe8NmiUx2BzGakNz0XLiqmw=
    # The next declration is the encrypted COVERITY_SCAN_TOKEN, created
@@ -71,6 +73,7 @@ addons:
 script:
  - ant -f build.xml emma debug install
  - ant -f tests/build.xml emma debug install test
+ - curl -F "file=@MainActivity-debug.apk" -F "token=${DEPLOYGATE_API_KEY}" -F "message=Update PotatotipsVendingMachine" https://deploygate.com/api/users/tarotaro4/apps
  
 after_success:
  - adb shell am instrument -e coverage true -w com.andbrowser.potatotipsvendingmachine.test/android.test.InstrumentationTestRunner
