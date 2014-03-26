@@ -52,7 +52,7 @@ before_install:
     - export AVD_NAME=test
     - echo ${ANDROID_TARGET}
     - echo ${ANDROID_ABI}
-    - if [ -n ${ANDROID_ABI} ]; then echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} ;else echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI} ;fi
+    - if [ ${ANDROID_ABI} = "" ]; then echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} ;else echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI} ;fi
 #    - echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI}
     - emulator -avd ${AVD_NAME} -no-skin -no-audio -no-window &
 
