@@ -1,8 +1,8 @@
 language: android
 jdk:
-#  - openjdk7
+  - openjdk7
   - oraclejdk7
-#  - openjdk6
+  - openjdk6
 
 notifications:
   email: true
@@ -24,10 +24,6 @@ android:
     - sysimg-16
     - android-15
     - sysimg-15
-    - android-13
-    - android-10
-    - sysimg-10
-    - android-8
   licenses:
     - android-sdk-license-bcbbd656
     
