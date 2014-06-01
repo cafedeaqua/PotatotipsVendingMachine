@@ -69,10 +69,10 @@ before_install:
 #    - if [ ! -e ${ANDROID_HOME}/platform-tools/aidl ]; then ln -s ${ANDROID_HOME}/build-tools/$ANDROID_BUILD_TOOLS_VERSION/aidl ${ANDROID_HOME}/platform-tools/aidl; fi
 
     # Create and start emulator
-    - export AVD_NAME=test
-    - echo ${ANDROID_TARGET}
-    - echo ${ANDROID_ABI}
-    - if [ "${ANDROID_ABI}" = "" ]; then echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} ;else echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI} ;fi
+#    - export AVD_NAME=test
+#    - echo ${ANDROID_TARGET}
+#    - echo ${ANDROID_ABI}
+#    - if [ "${ANDROID_ABI}" = "" ]; then echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} ;else echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI} ;fi
 #- if [ ${ANDROID_ABI} = "" ];  echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} ;fi
 #    - if [ ${ANDROID_ABI} != "" ]; echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI} ;fi
 #    - echo no | android create avd --force -n ${AVD_NAME} -t ${ANDROID_TARGET} --abi ${ANDROID_ABI}
@@ -83,7 +83,7 @@ before_script:
 #    - chmod +x ./wait_for_emulator
 #    - adb wait-for-device 
 #    - ./wait_for_emulator
-  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+    - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
     - emulator -avd test -no-skin -no-audio -no-window &
     - adb wait-for-device
     - chmod +x ./wait_for_emulator
