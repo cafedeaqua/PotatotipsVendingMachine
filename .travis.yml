@@ -24,6 +24,10 @@ android:
     - sysimg-16
     - android-15
     - sysimg-15
+    - extra-android-support
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
   licenses:
     - android-sdk-license-bcbbd656
     
