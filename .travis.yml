@@ -2,6 +2,7 @@ language: android
 jdk:
   - openjdk7
   - oraclejdk7
+  - openjdk6
 
 notifications:
   email: true
